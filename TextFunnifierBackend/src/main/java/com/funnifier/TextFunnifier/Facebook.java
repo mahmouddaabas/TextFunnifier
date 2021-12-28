@@ -6,11 +6,19 @@ import com.mashape.unirest.http.Unirest;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+/**
+ * Class to manage the Facebook API.
+ * Currently allows posting a status.
+ */
+
 public class Facebook {
 
     private String FACEBOOK_TOKEN;
 
-    //Function that returns the API Key stored in application.properties.
+    /**
+     * Function to ruturn the API Key stored in the application.properties file.
+     * @return FACEBOOK_TOKEN
+     */
     public String getApiKey() {
         try {
             String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
@@ -25,7 +33,10 @@ public class Facebook {
         return FACEBOOK_TOKEN;
     }
 
-    //Function to post a status on the facebook page.
+    /**
+     * Function to post the text sent in the parameter to the facebook page.
+     * @param text
+     */
     public void postFacebookStatus(String text){
         String newText = text.replaceAll(" ", "%20");
         try {
