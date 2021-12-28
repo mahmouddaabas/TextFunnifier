@@ -1,9 +1,11 @@
 # TextFunnifier
 
+School Project
 
 
 
 
 
-Privacy Policy
+
+# Privacy Policy
 No data will be stored, period.
