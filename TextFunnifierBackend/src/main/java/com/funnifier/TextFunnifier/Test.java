@@ -11,8 +11,8 @@ import java.io.IOException;
 public class Test {
 
     public static void main(String[] args) throws TwitterException, IOException, InterruptedException {
-        FunnifyText fu = new FunnifyText();
-        Facebook fa = new Facebook();
+        //Pirate pi = new Pirate();
+        //Facebook fa = new Facebook();
         //f.funnifyText("TEST");
         //fu.test();
         /*System.out.println(t.getApiKey());

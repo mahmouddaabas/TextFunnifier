@@ -5,17 +5,17 @@ import com.google.gson.JsonObject;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 
-public class FunnifyText {
+public class Pirate {
 
     private Facebook fa;
 
     //Create a facebook object once the class is constructed.
-    public FunnifyText(){
+    public Pirate(){
         fa = new Facebook();
     }
 
     //Send the text recieved through the parameter to the API.
-    public void funnifyText(String text){
+    public void pirateify(String text){
         //Extract the message and publish permission from the JSON that was sent with the POST Request.
         try {
             JsonObject jobj = new Gson().fromJson(text, JsonObject.class);

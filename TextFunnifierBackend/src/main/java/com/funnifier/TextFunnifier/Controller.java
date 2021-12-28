@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class Controller {
 
-    private FunnifyText f = new FunnifyText();
+    private Pirate pi = new Pirate();
 
-    @RequestMapping(value = "/send", method = RequestMethod.POST)
+    @RequestMapping(value = "/pirateify", method = RequestMethod.POST)
     public String postText(@RequestBody String text){
-        f.funnifyText(text);
+        pi.pirateify(text);
         return text;
     }
 
