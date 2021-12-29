@@ -42,12 +42,14 @@ public class Pirate {
             HttpResponse<String> response = Unirest.get("https://pirate.monkeyness.com/api/translate?english="+newMessage)
                     .asString();
 
-            //Store response data into a String
-            returnMessage = response.getBody();
+            //Store response data into a String then replace all "**" with "\n\n (double new lines) to restore the line breaks."
+            returnMessage = response.getBody().replace("**", "\n\n");
 
             //Checks for permission to publish to the facebook page.
             if(publish == true){
-                fa.postFacebookStatus(returnMessage);
+                //Create a seperate string that stores the facebook page update message and replaces "**" with "%0A%0A%0A" to add line breaks.";
+                String sendFacebook = response.getBody().replace("**", "%0A%0A%0A");
+                fa.postFacebookStatus(sendFacebook);
             }
         }
         catch(Exception e){
