@@ -12,7 +12,7 @@ import com.mashape.unirest.http.Unirest;
 public class Pirate {
 
     private Facebook fa;
-    private String message;
+    private String returnMessage;
 
     /**
      * Constructor to create the facebook object.
@@ -31,7 +31,7 @@ public class Pirate {
         //Extract the message and publish permission from the JSON that was sent with the POST Request.
         try {
             JsonObject jobj = new Gson().fromJson(text, JsonObject.class);
-            message = jobj.get("message").getAsString();
+            String message = jobj.get("message").getAsString();
             boolean publish = jobj.get("publish").getAsBoolean();
 
             //Replace spaces from the message with %20
@@ -42,15 +42,18 @@ public class Pirate {
             HttpResponse<String> response = Unirest.get("https://pirate.monkeyness.com/api/translate?english="+newMessage)
                     .asString();
 
-            //Checks the permission to publish to the facebook page.
+            //Store response data into a String
+            returnMessage = response.getBody();
+
+            //Checks for permission to publish to the facebook page.
             if(publish == true){
-                fa.postFacebookStatus(response.getBody());
+                fa.postFacebookStatus(returnMessage);
             }
         }
         catch(Exception e){
             e.printStackTrace();
         }
         //Return message as String
-        return message;
+        return returnMessage;
     }
 }
