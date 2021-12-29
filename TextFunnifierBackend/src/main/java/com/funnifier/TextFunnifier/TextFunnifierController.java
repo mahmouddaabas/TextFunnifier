@@ -19,6 +19,7 @@ public class TextFunnifierController {
      * @param text
      * @return objectNode
      */
+    @CrossOrigin
     @RequestMapping(value = "/pirateify", method = RequestMethod.POST)
     public ObjectNode postPirate(@RequestBody String text){
         //Pirateify the sent text and store in pirateText variable.
