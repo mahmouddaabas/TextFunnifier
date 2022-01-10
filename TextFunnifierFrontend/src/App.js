@@ -11,6 +11,13 @@ export class App extends Component {
     }
 
     SendMessage(input) {
+        var check = document.getElementById("checkbox");
+        if(check.checked){
+            this.state.publish = true
+        }
+        else {
+            this.state.publish = false
+        }
          let objectJS = { message: input, publish: this.state.publish };
          let objectJSON = JSON.stringify(objectJS);
          fetch("http://localhost:8080/pirateify", {
@@ -41,7 +48,7 @@ export class App extends Component {
         const Checkbox = ({ label, value, onChange }) => {
             return (
                 <label>
-                    <input type="checkbox" checked={value} onChange={onChange} />
+                    <input id="checkbox" type="checkbox" checked={value} onChange={onChange} />
                     {label}
                 </label>
             );
