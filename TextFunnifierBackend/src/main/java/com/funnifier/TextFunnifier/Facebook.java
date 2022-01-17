@@ -41,7 +41,7 @@ public class Facebook {
         String newText = text.replaceAll(" ", "%20");
         try {
             Unirest.setTimeouts(0, 0);
-            HttpResponse<String> response = Unirest.post("https://graph.facebook.com/v12.0/100108189224088/feed?message="
+            HttpResponse<String> response = Unirest.post("https://graph.facebook.com/v12.0/104346012152345/feed?message="
                             +newText
                             +"&access_token=" + getApiKey())
                     .asString();
